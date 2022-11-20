@@ -2,7 +2,7 @@
 
 [Read the blog post here](https://configcat.com/blog/)
 
-This is a demo API built with the Go programming language. In the article, it was used to demo implementing feature flags in Golang.
+This is a demo API built with the Go programming language. In the article, it was used to demo how to implement feature flags in Golang.
 
 ## Build & Run
 
