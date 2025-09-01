@@ -21,7 +21,7 @@ var jobs = []job{
 }
 
 func getJobs(c *gin.Context) {
-	isJobsEndpointEnabled := client.GetBoolValue("isAwesomeFeatureEnabled", false, nil)
+	isJobsEndpointEnabled := client.GetBoolValue("jobsApiEndpoint", false, nil)
 	if isJobsEndpointEnabled {
 		c.IndentedJSON(http.StatusOK, jobs)
 	} else {
