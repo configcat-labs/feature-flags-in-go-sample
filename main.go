@@ -1,45 +1,37 @@
 package main
 
 import (
-	"log"
 	"net/http"
-	"encoding/json"
 
-	"github.com/configcat/go-sdk/v7"
+	configcat "github.com/configcat/go-sdk/v9"
+	"github.com/gin-gonic/gin"
 )
 
-var client = configcat.NewClient("ScDaCD8ETUuG7wYo3BdP2A/5s96HBVckk-RzI-iVf-zRA")
+var client = configcat.NewClient("YOUR-CONFIGCAT-SDK-KEY")
 
-type Job struct {
-	Title string `json:"title"`
+type job struct {
+	Title      string `json:"title"`
 	Experience string `json:"experience"`
-	Salary string `json:"salary"`
+	Salary     string `json:"salary"`
 }
 
-type Jobs []Job
-
-func allJobs(w http.ResponseWriter, r *http.Request) {
-	jobs := Jobs{
-		Job{Title: "Software Engineer II", Experience: "6 Years", Salary: "$75,000"},
-		Job{Title: "Graphic Designer", Experience: "2 Years", Salary: "$54,000"},
-	}
-
-	json.NewEncoder(w).Encode(jobs)
+var jobs = []job{
+	{Title: "Software Engineer II", Experience: "6 Years", Salary: "$75,000"},
+	{Title: "Graphic Designer", Experience: "2 Years", Salary: "$54,000"},
 }
 
-func handleRequests() {
-	isJobsEndpointEnabled := client.GetBoolValue("jobsendpoint", false, nil)
-
+func getJobs(c *gin.Context) {
+	isJobsEndpointEnabled := client.GetBoolValue("isAwesomeFeatureEnabled", false, nil)
 	if isJobsEndpointEnabled {
-		http.HandleFunc("/jobs", allJobs)
+		c.IndentedJSON(http.StatusOK, jobs)
+	} else {
+		c.IndentedJSON(http.StatusNotFound, "API Endpoint disabled")
 	}
-
-	log.Fatal(http.ListenAndServe(":8001", nil))
 }
 
 func main() {
-	handleRequests()
+	router := gin.Default()
+	router.GET("/jobs", getJobs)
+	router.SetTrustedProxies(nil)
+	router.Run("localhost:8080")
 }
-
-
-
