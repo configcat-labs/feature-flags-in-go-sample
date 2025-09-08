@@ -1,30 +1,29 @@
 # feature-flags-in-go-sample
 
-[Read the blog post here](https://configcat.com/blog/)
+[Read the blog post here](https://configcat.com/blog/how-to-use-feature-flags-in-go)
 
-This is a demo API built with the Go programming language. In the article, it was used to demo how to implement feature flags in Golang.
+This sample app demonstrates how use ConfigCat feature flags a Go application using the [ConfigCat SDK for Go](https://configcat.com/docs/sdk-reference/go/).
 
 ## Build & Run
 
 ### Prerequisites
 
-- [Go](https://go.dev/) version 1.19
+- Latest version of [Go](https://go.dev/)
 
 ### Running the app
+
 1. Clone this repo
 
-2. Run the following command with 'make'
+2. Install the dependencies
 
 ```sh
-make run
+go get .
 ```
 
-or Manually run the follow commands:
+3. Run the app
 
 ```sh
-go build
-
-./feature-flags-in-go-sample
+go run .
 ```
 
 ## Learn more
@@ -36,10 +35,12 @@ go build
 
 You can also explore other code samples for various languages, frameworks, and topics here in the [ConfigCat labs](https://github.com/configcat-labs) on GitHub.
 
-Keep up with ConfigCat on [Twitter](https://twitter.com/configcat), [Facebook](https://www.facebook.com/configcat), [LinkedIn](https://www.linkedin.com/company/configcat/), and [GitHub](https://github.com/configcat).
+Keep up with ConfigCat on [X](https://x.com/configcat), [Facebook](https://www.facebook.com/configcat), [LinkedIn](https://www.linkedin.com/company/configcat/), and [GitHub](https://github.com/configcat).
 
 ## Author
+
 [Chavez Harris](https://github.com/codedbychavez)
 
 ## Contributions
+
 Contributions are welcome!
