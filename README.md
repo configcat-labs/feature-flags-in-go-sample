@@ -2,7 +2,7 @@
 
 [Read the blog post here](https://configcat.com/blog/how-to-use-feature-flags-in-go)
 
-This sample app demonstrates how ConfigCat feature flags can be integrated and used in a Go application using the [ConfigCat SDK for Go](https://configcat.com/docs/sdk-reference/go/).
+This sample app demonstrates how use ConfigCat feature flags a Go application using the [ConfigCat SDK for Go](https://configcat.com/docs/sdk-reference/go/).
 
 ## Build & Run
 

@@ -21,11 +21,11 @@ var jobs = []job{
 }
 
 func getJobs(c *gin.Context) {
-	isJobsEndpointEnabled := client.GetBoolValue("jobsApiEndpoint", false, nil)
+	isJobsEndpointEnabled := client.GetBoolValue("jobsEndpoint", false, nil)
 	if isJobsEndpointEnabled {
 		c.IndentedJSON(http.StatusOK, jobs)
 	} else {
-		c.IndentedJSON(http.StatusNotFound, "API Endpoint disabled")
+		c.IndentedJSON(http.StatusNotFound, "API endpoint disabled")
 	}
 }
 
